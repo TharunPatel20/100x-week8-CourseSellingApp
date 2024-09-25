@@ -56,9 +56,11 @@ adminRouter.post("/signin", InpuValidation, async function (req, res) {
         res.json({
           msg: "signin success",
           token: token,
-          adminFound,
+          details: adminFound,
         });
       }
+    } else {
+      res.json({ msg: "please signup first " });
     }
   } catch (err) {
     res.json({ msg: err.message });
